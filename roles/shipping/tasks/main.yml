@@ -1,0 +1,3 @@
+- name: print shipping
+  debug:
+    msg: shipping
