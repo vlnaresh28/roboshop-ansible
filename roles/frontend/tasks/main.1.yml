@@ -32,3 +32,5 @@ location /health {
 
 
 systemctl restart nginx 
+
+

@@ -3,7 +3,7 @@
     name: httpd
     state: installed
     
-- name: Recursively remove OLD Content
+- name: Remove OLD Content
   ansible.builtin.file:
     path: /usr/share/nginx/html/* 
     state: absent
@@ -19,3 +19,17 @@
     src:  https://roboshop-artifacts.s3.amazonaws.com/frontend.zip 
     dest: /usr/share/nginx/html
     remote_src: yes
+    
+    
+    
+
+- name: Create RoboShop Config in Nginx
+  ansible.builtin.copy:
+    src: roboshop.conf
+    dest: /etc/nginx/default.d/roboshop.conf
+
+- name: Start Nginx Service
+  ansible.builtin.systemd:
+    name: nginx
+    state: restarted
+    enabled: yes
