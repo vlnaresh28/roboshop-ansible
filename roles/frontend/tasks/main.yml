@@ -23,9 +23,8 @@
 
 - name: Create RoboShop Config in Nginx
   ansible.builtin.copy:
-    src: robo.txt
-    dest: /etc/nginx/robo.txt
-
+    src: roboshop.conf
+    dest: /etc/nginx/systemd/roboshop.conf
 - name: Start Nginx Service
   ansible.builtin.systemd:
     name: nginx
