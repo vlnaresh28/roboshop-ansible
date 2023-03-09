@@ -31,4 +31,4 @@ scrape_configs:
       
   - job_name: "test_node"
     static_configs:
-     - targets: ["54.80.244.70:9100"]
+     - targets: ["172.31.2.152:9100"]
