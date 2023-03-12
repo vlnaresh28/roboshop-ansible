@@ -1,8 +1,0 @@
-
-
-
-
-- name: Create RoboShop Config in Nginx
-   ansible.builtin.copy:
-     src: copy_renamed.conf
-     dest: /etc/nginx/default.d/copy.conf
