@@ -9,30 +9,33 @@ alerting:
   alertmanagers:
     - static_configs:
         - targets:
-          # - alertmanager:9093
+            - localhost:9093
 
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
- -alerts.yml
-  # - "second_rules.yml"
+{% for file in alert_files %}
+  - {{ file }}
+{% endfor %}
 
 # A scrape configuration containing exactly one endpoint to scrape:
 # Here it's Prometheus itself.
+
 scrape_configs:
+  - job_name: prometheus
+    static_configs:
+      - targets: ['localhost:9090']
 
 
 
-      
-  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
-  - job_name: "Roboshop Nodes"
+
+  - job_name: 'roboshop-nodes'
     ec2_sd_configs:
       - region: us-east-1
         port: 9100
         filters:
           - name: "tag:Monitor"
             values: ["yes"]
-            
-            
+
     relabel_configs:
     - source_labels: [__meta_ec2_tag_Name]
       target_label: name
