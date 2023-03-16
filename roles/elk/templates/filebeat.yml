@@ -146,8 +146,8 @@ setup.kibana:
 
 # ------------------------------ Logstash Output -------------------------------
 output.logstash:
-  # The Logstash hosts
-  hosts: ["127.0.0.1:5044"]
+  # The Logstash hosts ///// private ip of ELK
+  hosts: ["172.31.20.228:5044"]
 
   # Optional SSL. By default is off.
   # List of root certificates for HTTPS server verifications
