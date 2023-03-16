@@ -8,10 +8,11 @@
     name: filebeat
     state: installed
 
-- name: Copy filebeat configuration
+- name: Copy Filebeat Configuration
   ansible.builtin.template:
-    src: filebeat.yml
-    dest: /etc/filebeat/filebeat.yml
+    src: filebeat.conf
+    dest: /etc/logstash/conf.d/filebeat.conf
+
 
 - name: Restart Filebeat
   ansible.builtin.systemd:
