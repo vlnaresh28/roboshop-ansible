@@ -9,3 +9,14 @@ node_systemd_unit_state{exported_name="cart.service", state="active"}
 ## Memory
 
 100 - (((node_memory_Buffers_bytes + node_memory_Cached_bytes + node_memory_MemFree_bytes) / node_memory_MemTotal_bytes) * 100)
+
+
+
+
+
+
+
+log format text .....
+
+http {
+    log_format  main  '$time_local $remote_addr - $request $status $request_time';
