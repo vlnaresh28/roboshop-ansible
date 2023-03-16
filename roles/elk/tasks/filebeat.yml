@@ -11,7 +11,7 @@
 - name: Copy Filebeat Configuration
   ansible.builtin.template:
     src: filebeat.conf
-    dest: /etc/logstash/conf.d/filebeat.conf
+    dest: /etc/filebeat/conf.d/filebeat.conf
 
 
 - name: Restart Filebeat
